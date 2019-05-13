@@ -3646,6 +3646,13 @@ escodegen@^1.11.0, escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
+eslint-config-prettier@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.2.0.tgz#70b946b629cd0e3e98233fd9ecde4cb9778de96c"
+  integrity sha512-y0uWc/FRfrHhpPZCYflWC8aE0KRJRY04rdZVfl8cL3sEZmOYyaBdhdlQPjKZBnuRMyLVK+JUZr7HaZFClQiH4w==
+  dependencies:
+    get-stdin "^6.0.0"
+
 eslint-config-react-app@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-4.0.1.tgz#23fd0fd7ea89442ef1e733f66a7207674b23c8db"
@@ -4369,6 +4376,11 @@ get-own-enumerable-property-symbols@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-own-enumerable-property-symbols/-/get-own-enumerable-property-symbols-3.0.0.tgz#b877b49a5c16aefac3655f2ed2ea5b684df8d203"
   integrity sha512-CIJYJC4GGF06TakLg8z4GQKvDsx9EMspVxOYih7LerEL/WosUnFIww45CGfxfeKHqlg3twgUrYRT1O3WQqjGCg==
+
+get-stdin@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-6.0.0.tgz#9e09bf712b360ab9225e812048f71fde9c89657b"
+  integrity sha512-jp4tHawyV7+fkkSKyvjuLZswblUtz+SQKzSWnBbii16BuZksJlU1wuBYXY75r+duh/llF1ur6oNwi+2ZzjKZ7g==
 
 get-stream@^4.0.0:
   version "4.1.0"
@@ -8109,7 +8121,7 @@ react-dev-utils@^9.0.1:
     strip-ansi "5.2.0"
     text-table "0.2.0"
 
-react-dom@16.8.6:
+react-dom@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
   integrity sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
@@ -8189,7 +8201,7 @@ react-scripts@3.0.1:
   optionalDependencies:
     fsevents "2.0.6"
 
-react@16.8.6:
+react@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
