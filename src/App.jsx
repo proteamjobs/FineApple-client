@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './Main/Main';
 import Login from './Login/Login';
+import Signup from './Signup/Singup';
 import SearchResult from './SearchResult/SearchResult';
 import StoreInfo from './StoreInfo/StoreInfo';
 import HeartedItems from './HeartedItems/HeartedItems';
@@ -12,8 +13,9 @@ const App = () => {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Main} />
-          <Route path="/login" component={Login} />
+          <Route exact path="/" component={Login} />
+          <Route path="/main" component={Main} />
+          <Route path="/register" component={Signup} />
           <Route
             path="/searchresult/:userid/:countrycode/:storecode/:category"
             component={SearchResult}
