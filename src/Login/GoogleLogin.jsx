@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import GooggleLogin from 'react-google-login';
-import config from '../config/config.json';
+import config from '../../config/config.json';
 const axios = require('axios');
 
 const GOOGLE_LOGIN_CLIENTID = config.GOOGLE_LOGIN_CLIENTID;
