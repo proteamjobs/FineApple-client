@@ -2,20 +2,20 @@ module.exports = {
   env: {
     es6: true,
     node: true,
-    browser: true,
+    browser: true
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 2018,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['react'],
   rules: {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
-    semi: ['error', 'always'],
-  },
+    semi: ['error', 'always']
+  }
 };
