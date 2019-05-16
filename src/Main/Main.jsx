@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Header from '../Header/Header';
 
 function Main() {
-  return <div>{localStorage.access_token}</div>;
+  return (
+    <Fragment>
+      <Header />
+    </Fragment>
+  );
 }
 
 export default Main;
