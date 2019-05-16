@@ -24,7 +24,7 @@ export class FacebookButton extends Component {
     localStorage.setItem('provider', 'facebook');
     localStorage.setItem('access_token', res.accessToken);
 
-    //axios.post('http://localhost:3001/auth', userData).then(res)
+    //axios.post('http://localhost:3001/auth', userData).then(res => )
     //db에 회원정보가 없을시 this.props.history.push('/register')
     //있을 시 this.props.history.push('/main')
     // });

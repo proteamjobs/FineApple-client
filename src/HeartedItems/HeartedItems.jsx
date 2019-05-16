@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Header from '../Header/Header';
 
 function HeartedItems() {
-  return <div>HeartedItems</div>;
+  return (
+    <Fragment>
+      <Header />
+    </Fragment>
+  );
 }
 
 export default HeartedItems;
