@@ -46,7 +46,7 @@ export class UserButton extends Component {
           toggle={this._toggleDropdown}
         >
           <DropdownToggle className="dropdown_toggle">
-            <img src={localStorage.user_image} />
+            <img src={localStorage.user_image} alt="user" />
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem header>{localStorage.user_email}</DropdownItem>

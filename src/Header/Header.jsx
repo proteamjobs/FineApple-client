@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row } from 'reactstrap';
+import { Row } from 'reactstrap';
 import LoginButton from './LoginButton';
 import UserButton from './UserButton';
 import './style.css';
