@@ -6,16 +6,6 @@ const axios = require('axios');
 const GOOGLE_LOGIN_CLIENTID = config.GOOGLE_LOGIN_CLIENTID;
 
 export class GoogleButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user_id: null,
-      name: null,
-      provider: null,
-      access_token: null
-    };
-  }
-
   _onFailure = err => {
     console.log(err);
   };
@@ -34,10 +24,13 @@ export class GoogleButton extends Component {
     localStorage.setItem('provider', 'google');
     localStorage.setItem('access_token', res.accessToken);
 
-    // axios.post('http://localhost:3001/auth', userData).then(result => {
-    //db에 회원정보가 없을시 this.props.history.push('/register')
-    //있을 시 this.props.history.push('/main')
-    // });
+    axios.post('http://13.125.34.37:3001/users/auth', userData).then(result => {
+      if (!result.data.isMember) {
+        this.props.history.push('/register');
+      } else {
+        this.props.history.push('/main');
+      }
+    });
   };
 
   render() {

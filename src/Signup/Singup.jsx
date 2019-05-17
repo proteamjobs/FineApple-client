@@ -6,14 +6,18 @@ const axios = require('axios');
 class Singup extends Component {
   _onClickSignup = () => {
     let userData = {
-      id: localStorage.user_id,
+      user_id: localStorage.user_id,
       provider: localStorage.provider
     };
 
-    //axios.post('http://localhost:3001/signup', userData).then(res =>
-    //res가 OK이면 this.props.history.push('/main');
-    //err일시 console.log(err)
-    this.props.history.push('/main');
+    axios.post('http://13.125.34.37:3001/users/signup', userData).then(res => {
+      if (res.data === 'Done') {
+        this.props.history.push('/main');
+      } else {
+        alert('다시 시도해주세요');
+        this.props.history.push('/');
+      }
+    });
   };
 
   _onClickCancel = () => {

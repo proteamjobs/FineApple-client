@@ -15,7 +15,7 @@ export class Login extends Component {
           <h2>지금 바로 가입하세요</h2>
           <div>
             <GoogleButton history={this.props.history} />
-            <FacebookButton />
+            <FacebookButton history={this.props.history} />
             <Link to="/main">
               <button>로그인하지 않고 둘러보기</button>
             </Link>
