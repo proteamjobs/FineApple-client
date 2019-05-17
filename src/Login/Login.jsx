@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleButton from './GoogleLogin';
 import FacebookButton from './FacebookLogin';
+import { Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export class Login extends Component {
   render() {
@@ -17,7 +19,7 @@ export class Login extends Component {
             <GoogleButton history={this.props.history} />
             <FacebookButton history={this.props.history} />
             <Link to="/main">
-              <button>로그인하지 않고 둘러보기</button>
+              <Button color="secondary">로그인하지 않고 둘러보기</Button>
             </Link>
           </div>
         </div>

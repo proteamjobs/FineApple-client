@@ -49,15 +49,28 @@ export class Search extends Component {
 
   _onClickSearch = () => {
     const { country_code, store_code, category } = this.state.body;
+    let user_id;
     if (!country_code) alert('국가를 선택해주세요');
     if (!store_code) alert('매장을 선택해주세요');
     if (!category) alert('카테고리를 선택해주세요');
+    if (localStorage.user_id) {
+      user_id = localStorage.user_id;
+    } else {
+      user_id = 0;
+    }
 
     axios
       .get(
-        `http://13.125.34.37:3001/products/list?countryCode=${country_code}&storeCode=${store_code}$category=${category}`
+        `http://13.125.34.37:3001/products/list?countryCode=${country_code}&storeCode=${store_code}&category=${category}&userID=${user_id}`
       )
-      .then(res => console.log(res));
+      .then(res => {
+        this.props.history.push({
+          pathname: `/searchresult/${country_code}/${store_code}/${category}`,
+          state: {
+            result: res.data.productlist
+          }
+        });
+      });
   };
 
   _onCountryClick = e => {
@@ -69,7 +82,6 @@ export class Search extends Component {
   };
 
   _onShopClick = e => {
-    console.log(e.currentTarget.text);
     this.setState({
       ...this.state,
       selectedShop: e.currentTarget.textContent,
@@ -138,7 +150,6 @@ export class Search extends Component {
       subCategoryDropdownOpen,
       body
     } = this.state;
-    console.log('body:::', body);
     return shops ? (
       <Row>
         <Dropdown

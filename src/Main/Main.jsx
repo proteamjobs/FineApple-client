@@ -3,11 +3,11 @@ import Header from '../Header/Header';
 import Search from '../Search/Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Main() {
+function Main(props) {
   return (
     <Fragment>
       <Header />
-      <Search />
+      <Search history={props.history} />
     </Fragment>
   );
 }

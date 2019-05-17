@@ -3,6 +3,7 @@ import { Row } from 'reactstrap';
 import LoginButton from './LoginButton';
 import UserButton from './UserButton';
 import './style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Header() {
   return (

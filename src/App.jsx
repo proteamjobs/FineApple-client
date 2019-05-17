@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/main" component={Main} />
           <Route path="/register" component={Signup} />
           <Route
-            path="/searchresult/:userid/:countrycode/:storecode/:category"
+            path="/searchresult/:countrycode/:storecode/:category"
             component={SearchResult}
           />
           <Route
