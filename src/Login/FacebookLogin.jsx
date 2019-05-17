@@ -6,10 +6,6 @@ const axios = require('axios');
 const FACEBOOK_APP_ID = config.FACEBOOK_APP_ID;
 
 export class FacebookButton extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   _responseFacebook = res => {
     console.log(res);
     let userData = {
@@ -24,10 +20,13 @@ export class FacebookButton extends Component {
     localStorage.setItem('provider', 'facebook');
     localStorage.setItem('access_token', res.accessToken);
 
-    //axios.post('http://localhost:3001/auth', userData).then(res => )
-    //db에 회원정보가 없을시 this.props.history.push('/register')
-    //있을 시 this.props.history.push('/main')
-    // });
+    axios.post('http://13.125.34.37:3001/users/auth', userData).then(result => {
+      if (!result.data.isMember) {
+        this.props.history.push('/register');
+      } else {
+        this.props.history.push('/main');
+      }
+    });
   };
 
   render() {
