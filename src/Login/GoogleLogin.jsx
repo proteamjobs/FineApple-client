@@ -28,6 +28,8 @@ export class GoogleButton extends Component {
       if (!result.data.isMember) {
         this.props.history.push('/register');
       } else {
+        console.log(typeof result.data.userDB_id);
+        localStorage.setItem('userDB_id', result.data.userDB_id);
         this.props.history.push('/main');
       }
     });

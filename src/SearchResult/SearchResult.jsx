@@ -18,29 +18,48 @@ const axios = require('axios');
 
 class SearchResult extends Component {
   _onClickHeart = e => {
+    e.persist();
+
     let heartColor = e.target.parentNode.parentNode.style.color;
-    let productID = e.target.parentNode.parentNode.parentNode.parentNode.getAttribute(
-      'value'
+    let productID = Number(
+      e.target.parentNode.parentNode.parentNode.parentNode.getAttribute('value')
     );
     if (localStorage.access_token) {
-      let body = {
-        userID: localStorage.user_id,
-        storeID: this.props.location.state.result[0].storeID,
-        productID: Number(productID)
-      };
+      if (productID !== 0) {
+        let body = {
+          userID: Number(localStorage.userDB_id),
+          storeID: this.props.location.state.result[0].storeID,
+          productID: productID
+        };
 
-      console.log(body);
-      //핑크에서 회색 (찜삭제)
-      if (heartColor === 'rgb(234, 134, 133)') {
-        // axios
-        //   .delete('http://13.125.34.37:3001/heartedItems/delete', body)
-        //   .catch(err => console.log(err));
-        e.target.parentNode.parentNode.style.color = 'rgb(178, 190, 195)';
-      } else if (heartColor === 'rgb(178, 190, 195)') {
-        // axios
-        //   .post('http://13.125.34.37:3001/heartedItems/add',body)
-        //   .catch(err => console.log(err));
-        e.target.parentNode.parentNode.style.color = 'rgb(234, 134, 133)';
+        console.log(body);
+        //찜삭제
+        if (heartColor === 'rgb(234, 134, 133)') {
+          axios
+            .delete('http://13.125.34.37:3001/heartedItems/delete', {
+              data: body
+            })
+            .then(result => {
+              // console.log(result);
+              if (result.status === 201) {
+                e.target.parentNode.parentNode.style.color =
+                  'rgb(178, 190, 195)';
+              }
+            })
+            .catch(err => console.log(err));
+          //찜등록
+        } else if (heartColor === 'rgb(178, 190, 195)') {
+          axios
+            .post('http://13.125.34.37:3001/heartedItems/add', body)
+            .then(result => {
+              // console.log(result);
+              if (result.status === 201) {
+                e.target.parentNode.parentNode.style.color =
+                  'rgb(234, 134, 133)';
+              }
+            })
+            .catch(err => console.log(err));
+        }
       }
     } else {
       alert('찜하기는 로그인 시에만 가능합니다!');
