@@ -31,7 +31,11 @@ export class Search extends Component {
       shopDropdownOpen: false,
       categoryDropdownOpen: false,
       subCategoryDropdownOpen: false,
-      body: { country_code: null, store_code: null, category: null }
+      body: {
+        country_code: null,
+        store_code: null,
+        category: null
+      }
     };
   }
 
@@ -82,10 +86,14 @@ export class Search extends Component {
   };
 
   _onShopClick = e => {
+    console.log(e.target.value);
     this.setState({
       ...this.state,
       selectedShop: e.currentTarget.textContent,
-      body: { ...this.state.body, store_code: e.target.value }
+      body: {
+        ...this.state.body,
+        store_code: e.target.value
+      }
     });
   };
 
@@ -176,7 +184,6 @@ export class Search extends Component {
           onMouseOver={this._onShopMouseEnter}
           onMouseLeave={this._onShopMouseLeave}
           isOpen={shopDropdownOpen}
-          toggle={this._toggleDropdown}
         >
           <DropdownToggle>
             {selectedShop ? selectedShop : 'selectedShop'}
@@ -188,6 +195,7 @@ export class Search extends Component {
                   .map(shop => (
                     <DropdownItem
                       value={shop['store_code']}
+                      // value={shop['store_code']}
                       onClick={this._onShopClick}
                     >
                       {shop['store_name']}
@@ -218,7 +226,6 @@ export class Search extends Component {
           onMouseOver={this._onSubCategoryMouseEnter}
           onMouseLeave={this._onSubCategoryMouseLeave}
           isOpen={subCategoryDropdownOpen}
-          // toggle={this._toggleDropdown}
         >
           <DropdownToggle>
             {selectedSubCategory ? selectedSubCategory : 'selectedSubCategory'}
