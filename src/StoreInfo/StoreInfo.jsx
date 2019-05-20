@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { Container, Col, Row, Button } from 'reactstrap';
+import Heater from '../Header/Header';
 import GoogleMap from './GoogleMap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from '../Header/Header';
 
 export class StoreInfo extends Component {
   state = {
@@ -27,6 +29,7 @@ export class StoreInfo extends Component {
     const { onBusinessHourView } = this.state;
     return (
       <Fragment>
+        <Header />
         <h2>{address.address}</h2>
         {onBusinessHourView ? (
           <Container>

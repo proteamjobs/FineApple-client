@@ -1,5 +1,5 @@
-import React from 'react';
-import { Row } from 'reactstrap';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import LoginButton from './LoginButton';
 import UserButton from './UserButton';
 import './style.css';
@@ -7,10 +7,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Header() {
   return (
-    <Row>
-      <div>Fine|Apple</div>
+    <Fragment>
+      <Link to="/main">Fine|Apple</Link>
       {localStorage.access_token ? <UserButton /> : <LoginButton />}
-    </Row>
+    </Fragment>
   );
 }
 

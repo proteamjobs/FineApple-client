@@ -52,7 +52,7 @@ export class UserButton extends Component {
             <DropdownItem header>{localStorage.user_email}</DropdownItem>
             <DropdownItem divider />
             <DropdownItem>
-              <Link to="/hearteditems/:userid">찜목록</Link>
+              <Link to={`/hearteditems/${localStorage.userDB_id}`}>찜목록</Link>
             </DropdownItem>
             <DropdownItem>
               <Link to="/" onClick={this._onlogOutClick}>
