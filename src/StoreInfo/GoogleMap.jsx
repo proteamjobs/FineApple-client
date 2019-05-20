@@ -33,10 +33,7 @@ export class GoogleMap extends Component {
       <Map
         google={this.props.google}
         zoom={14}
-        initialCenter={{
-          lat: 37.52,
-          lng: 127.022
-        }}
+        initialCenter={{ lat: this.props.lat, lng: this.props.lng }}
       >
         <Marker
           onClick={this._onMarkerClick}
