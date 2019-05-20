@@ -11,6 +11,35 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 const axios = require('axios');
 
+// "Mac": {
+//   "MacBook": "macbook",
+//   "MacBook Air": "macbookair",
+//   "MacBook Pro": "macbookpro",
+//   "iMac": "imac",
+//   "iMac Pro": "imacpro",
+//   "Mac mini": "macmini"
+// },
+// "iPad": {
+//   "iPad Pro": "ipadpro",
+//   "iPad Air": "ipadair",
+//   "iPad": "ipad",
+//   "iPad mini": "ipadmini"
+// },
+// "iPhone": {
+//   "iPhone XS": "iphonexs",
+//   "iPhone XR": "iphonexr",
+//   "iPhone 8": "iphone8",
+//   "iPhone 7": "iphone7"
+// },
+// "Watch": {
+//   "Apple Watch Series 4": "applewatchseries4",
+//   "Apple Watch Nike+": "applewatchnike+",
+//   "Apple Watch Hermes": "applewatchhermes",
+//   "Apple Watch Series 3": "applewatchseries3"
+// },
+// "ETC": {
+//   "ETC": "etc"
+// }
 export class Search extends Component {
   constructor(props) {
     super(props);
@@ -19,9 +48,22 @@ export class Search extends Component {
       countries: { 대한민국: 'KR', 일본: 'JP', 홍콩: 'HK' },
       shops: null,
       categories: {
-        Mac: ['MacBookAir', 'MacBookPro', 'MacPro'],
-        iphone: ['iphoneX', 'iphoneXS', 'iphoneR'],
-        Watch: ['Watch10', 'WatchX', 'WatchXS']
+        Mac: [
+          'MacBook',
+          'MacBookAir',
+          'MacBookPro',
+          'iMac',
+          'iMacPro',
+          'Macmini'
+        ],
+        iphone: ['iPhoneXS', 'iPhoneXR', 'iPhone8', 'iPhone7'],
+        Watch: [
+          'AppleWatchSeries3',
+          'AppleWatchSeries4',
+          'AppleWatchNike+',
+          'AppleWatchHermes'
+        ],
+        Etc: ['ETC']
       },
       selectedCountry: null,
       selectedShop: null,
@@ -52,7 +94,10 @@ export class Search extends Component {
   };
 
   _onClickSearch = () => {
-    const { country_code, store_code, category } = this.state.body;
+    const { store_code, category } = this.state.body;
+    const country_code = this.state.body.country_code.toLowerCase();
+
+    console.log(this.state.body);
     let user_id;
     if (!country_code) alert('국가를 선택해주세요');
     if (!store_code) alert('매장을 선택해주세요');
