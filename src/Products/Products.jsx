@@ -96,7 +96,7 @@ export class Products extends Component {
       <CardWrapper>
         <CardDeck>
           {products.map(product => (
-            <Card style={{ width: 250 }} value={product.productID}>
+            <Card style={{ width: 300 }} value={product.productID}>
               <CardBody>
                 {product.isHearted ? (
                   <Icon
@@ -116,13 +116,14 @@ export class Products extends Component {
 
                 <CardImg
                   top
-                  width="100px"
-                  height="100px"
+                  width="70"
+                  height="200"
+                  // style={{ width: '80%' }}
                   src={product.imageUrl}
                   alt={product.modelName}
                 />
 
-                <CardTitle style={{ fontWeight: 500, marginTop: 10 }}>
+                <CardTitle style={{ fontWeight: 500, marginTop: 5 }}>
                   {product.modelName}
                 </CardTitle>
                 {product.isPickupAvailable ? (
