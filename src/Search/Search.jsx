@@ -29,6 +29,7 @@ const SearchWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
   margin-top: ${props => (props.main ? '30vh' : '5vh')}
   height: 10vh;
   background-color: ${props => (props.main ? '#00000055' : 'transparent')}
@@ -44,8 +45,8 @@ const StyledDropDownToggle = styled(DropdownToggle)`
     border-bottom-left-radius: ${props => (props.leftEnd ? '5' : '0')};
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border: ${props => (props.main ? 'none' : '1 solid #95a5a6')};
-    border-right: 0.5 solid #95a5a6;
+    border: ${props => (props.main ? 'none' : '1px solid #95a5a6')};
+    border-right: 0.5px solid #95a5a6;
     height: 100%;
     width: 14vw;
     font-weight: 600;
