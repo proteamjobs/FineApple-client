@@ -3,7 +3,6 @@ import Header from '../Header/Header';
 import Search from '../Search/Search';
 import { Container } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './main.css';
 import background from '../img/background_city.jpg';
 
 function Main(props) {
@@ -14,7 +13,6 @@ function Main(props) {
         margin: 0,
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
-        // background: '#ecf0f1',
         height: '100vh',
         width: '100%'
       }}
