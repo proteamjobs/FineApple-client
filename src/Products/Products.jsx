@@ -12,7 +12,16 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Icon from 'react-icons-kit';
 import { heart } from 'react-icons-kit/fa/heart';
+import styled from 'styled-components';
 const axios = require('axios');
+
+const CardWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+  text-align: center;
+  padding: 0 10vw 0 10vw;
+`;
 
 export class Products extends Component {
   _onClickHeart = e => {
@@ -84,52 +93,60 @@ export class Products extends Component {
     const products = this.props.products;
     console.log(products);
     return (
-      <CardDeck>
-        {products.map(product => (
-          <Card value={product.productID}>
-            <CardBody>
-              {product.isHearted ? (
-                <Icon
-                  onClick={this._onClickHeart}
-                  size={30}
-                  icon={heart}
-                  style={{ color: '#ea8685' }}
-                />
-              ) : (
-                <Icon
-                  onClick={this._onClickHeart}
-                  size={30}
-                  icon={heart}
-                  style={{ color: '#b2bec3' }}
-                />
-              )}
+      <CardWrapper>
+        <CardDeck>
+          {products.map(product => (
+            <Card style={{ width: 250 }} value={product.productID}>
+              <CardBody>
+                {product.isHearted ? (
+                  <Icon
+                    onClick={this._onClickHeart}
+                    size={30}
+                    icon={heart}
+                    style={{ color: '#ea8685', float: 'right' }}
+                  />
+                ) : (
+                  <Icon
+                    onClick={this._onClickHeart}
+                    size={30}
+                    icon={heart}
+                    style={{ color: '#b2bec3', float: 'right' }}
+                  />
+                )}
 
-              <CardImg
-                top
-                width="100px"
-                height="100px"
-                src={product.imageUrl}
-                alt={product.modelName}
-              />
+                <CardImg
+                  top
+                  width="100px"
+                  height="100px"
+                  src={product.imageUrl}
+                  alt={product.modelName}
+                />
 
-              <CardTitle>{product.modelName}</CardTitle>
-              {product.isPickupAvailable ? (
-                <Badge color="success" pill>
-                  픽업 가능
-                </Badge>
-              ) : (
-                <Badge color="danger" pill>
-                  픽업 불가능
-                </Badge>
-              )}
-              <CardText>{product.storeName}</CardText>
-              <Button onClick={this._onClickStoreInfo} color="secondary">
-                매장정보
-              </Button>
-            </CardBody>
-          </Card>
-        ))}
-      </CardDeck>
+                <CardTitle style={{ fontWeight: 500, marginTop: 10 }}>
+                  {product.modelName}
+                </CardTitle>
+                {product.isPickupAvailable ? (
+                  <Badge color="success" pill>
+                    픽업 가능
+                  </Badge>
+                ) : (
+                  <Badge color="danger" pill>
+                    픽업 불가능
+                  </Badge>
+                )}
+                <CardText>{product.storeName}</CardText>
+                <Button
+                  onClick={this._onClickStoreInfo}
+                  color="secondary"
+                  style={{ marginBottom: 10 }}
+                >
+                  매장정보
+                </Button>
+              </CardBody>
+            </Card>
+          ))}
+        </CardDeck>
+      </CardWrapper>
     );
   }
 }
