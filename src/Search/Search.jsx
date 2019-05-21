@@ -10,9 +10,20 @@ import {
 } from 'reactstrap';
 import Icon from 'react-icons-kit';
 import { search } from 'react-icons-kit/fa/search';
+import { iosLocation } from 'react-icons-kit/ionicons/iosLocation';
+import { appleinc } from 'react-icons-kit/icomoon/appleinc';
+import { shop } from 'react-icons-kit/entypo/shop';
+import { archive } from 'react-icons-kit/entypo/archive';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import styled from 'styled-components';
 const axios = require('axios');
+
+const InputWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const SearchWrapper = styled.div`
   display: flex;
@@ -33,10 +44,10 @@ const StyledDropDownToggle = styled(DropdownToggle)`
     border-bottom-left-radius: ${props => (props.leftEnd ? '5' : '0')};
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border: none;
-    border-right: 0.5px solid gray;
+    border: ${props => (props.main ? 'none' : '1 solid #95a5a6')};
+    border-right: 0.5 solid #95a5a6;
     height: 100%;
-    width: 13vw;
+    width: 14vw;
     font-weight: 600;
   }
 `;
@@ -45,8 +56,8 @@ const StyledDropDownMenu = styled(DropdownMenu)`
   && {
     background-color: white;
     color: gray;
-    border: none;
-    width: 13vw;
+    border: ${props => (props.main ? 'none' : '1px solid #bdc3c7')};
+    width: 14vw;
     font-weight: 600;
     text-align: center;
   }
@@ -59,10 +70,10 @@ const StyledButton = styled(Button)`
     border-bottom-left-radius: 0;
     border-top-right-radius: 5;
     border-bottom-right-radius: 5;
-    width: 8vw;
+    width: 5vw;
     border-radius: 5;
     font-weight: 600;
-    background-color: #bdc3c7;
+    background-color: #95a5a6;
     color: white;
   }
 `;
@@ -233,7 +244,7 @@ export class Search extends Component {
     } = this.state;
     return shops ? (
       <SearchWrapper main={this.props.main ? true : false}>
-        <Row style={{ height: '70%' }}>
+        <Row style={{ height: '65%' }}>
           <Dropdown
             onMouseOver={this._onCountryMouseEnter}
             onMouseLeave={this._onCountryMouseLeave}
@@ -244,7 +255,18 @@ export class Search extends Component {
               aria-haspopup={true}
               aria-expanded={false}
             >
-              {selectedCountry ? selectedCountry : '국가 선택'}
+              {selectedCountry ? (
+                selectedCountry
+              ) : (
+                <InputWrapper>
+                  <Icon
+                    onClick={this._onClickSearch}
+                    size={24}
+                    icon={iosLocation}
+                  />
+                  <span style={{ marginLeft: 5 }}>국가 선택</span>
+                </InputWrapper>
+              )}
             </StyledDropDownToggle>
             <StyledDropDownMenu>
               {Object.keys(countries).map(country => (
@@ -264,7 +286,14 @@ export class Search extends Component {
             isOpen={shopDropdownOpen}
           >
             <StyledDropDownToggle aria-haspopup={true} aria-expanded={false}>
-              {selectedShop ? selectedShop : '스토어 선택'}
+              {selectedShop ? (
+                selectedShop
+              ) : (
+                <InputWrapper>
+                  <Icon onClick={this._onClickSearch} size={24} icon={shop} />{' '}
+                  <span style={{ marginLeft: 5 }}>스토어 선택</span>
+                </InputWrapper>
+              )}
             </StyledDropDownToggle>
             <StyledDropDownMenu>
               {selectedCountry
@@ -288,7 +317,18 @@ export class Search extends Component {
             isOpen={categoryDropdownOpen}
           >
             <StyledDropDownToggle aria-haspopup={true} aria-expanded={false}>
-              {selectedCategory ? selectedCategory : '카테고리 선택'}
+              {selectedCategory ? (
+                selectedCategory
+              ) : (
+                <InputWrapper>
+                  <Icon
+                    onClick={this._onClickSearch}
+                    size={24}
+                    icon={archive}
+                  />{' '}
+                  <span style={{ marginLeft: 7 }}>카테고리 선택</span>
+                </InputWrapper>
+              )}
             </StyledDropDownToggle>
             <StyledDropDownMenu>
               {Object.keys(categories).map(category => (
@@ -305,7 +345,18 @@ export class Search extends Component {
             isOpen={subCategoryDropdownOpen}
           >
             <StyledDropDownToggle aria-haspopup={true} aria-expanded={false}>
-              {selectedSubCategory ? selectedSubCategory : '상세 선택'}
+              {selectedSubCategory ? (
+                selectedSubCategory
+              ) : (
+                <InputWrapper>
+                  <Icon
+                    onClick={this._onClickSearch}
+                    size={24}
+                    icon={appleinc}
+                  />{' '}
+                  <span style={{ marginLeft: 5 }}>상세 선택</span>
+                </InputWrapper>
+              )}
             </StyledDropDownToggle>
             <StyledDropDownMenu>
               {selectedCategory
@@ -318,7 +369,7 @@ export class Search extends Component {
             </StyledDropDownMenu>
           </Dropdown>
           <StyledButton onClick={this._onClickSearch}>
-            <Icon onClick={this._onClickSearch} size={30} icon={search} />
+            <Icon onClick={this._onClickSearch} size={26} icon={search} />
           </StyledButton>
         </Row>
       </SearchWrapper>
