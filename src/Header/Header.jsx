@@ -14,9 +14,11 @@ function Header() {
         height: '10vh',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        backgroundColor: '#2c3e5050',
+        // backgroundColor: 'transparent',
         paddingLeft: '5vw',
-        paddingRight: '5vw'
+        paddingRight: '5vw',
+        zIndex: 1
       }}
     >
       <Link to="/main">

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background: #2c3e50;
+  background: transparent;
   color: white
   font-size: 1em;
   font-weight: 600;
