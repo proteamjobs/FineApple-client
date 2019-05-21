@@ -1,45 +1,72 @@
 import React, { Component } from 'react';
 import {
   Dropdown,
+  Row,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Row,
   Button,
   Spinner
 } from 'reactstrap';
+import Icon from 'react-icons-kit';
+import { search } from 'react-icons-kit/fa/search';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
 const axios = require('axios');
 
-// "Mac": {
-//   "MacBook": "macbook",
-//   "MacBook Air": "macbookair",
-//   "MacBook Pro": "macbookpro",
-//   "iMac": "imac",
-//   "iMac Pro": "imacpro",
-//   "Mac mini": "macmini"
-// },
-// "iPad": {
-//   "iPad Pro": "ipadpro",
-//   "iPad Air": "ipadair",
-//   "iPad": "ipad",
-//   "iPad mini": "ipadmini"
-// },
-// "iPhone": {
-//   "iPhone XS": "iphonexs",
-//   "iPhone XR": "iphonexr",
-//   "iPhone 8": "iphone8",
-//   "iPhone 7": "iphone7"
-// },
-// "Watch": {
-//   "Apple Watch Series 4": "applewatchseries4",
-//   "Apple Watch Nike+": "applewatchnike+",
-//   "Apple Watch Hermes": "applewatchhermes",
-//   "Apple Watch Series 3": "applewatchseries3"
-// },
-// "ETC": {
-//   "ETC": "etc"
-// }
+const SearchWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: ${props => (props.main ? '30vh' : '5vh')}
+  height: 10vh;
+  background-color: ${props => (props.main ? '#00000055' : 'transparent')}
+  margin-left: 15vw;
+  margin-right: 15vw;
+`;
+
+const StyledDropDownToggle = styled(DropdownToggle)`
+  && {
+    background-color: white;
+    color: gray;
+    border-top-left-radius: ${props => (props.leftEnd ? '5' : '0')};
+    border-bottom-left-radius: ${props => (props.leftEnd ? '5' : '0')};
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: none;
+    border-right: 0.5px solid gray;
+    height: 100%;
+    width: 13vw;
+    font-weight: 600;
+  }
+`;
+
+const StyledDropDownMenu = styled(DropdownMenu)`
+  && {
+    background-color: white;
+    color: gray;
+    border: none;
+    width: 13vw;
+    font-weight: 600;
+    text-align: center;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  && {
+    border: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 5;
+    border-bottom-right-radius: 5;
+    width: 8vw;
+    border-radius: 5;
+    font-weight: 600;
+    background-color: #bdc3c7;
+    color: white;
+  }
+`;
+
 export class Search extends Component {
   constructor(props) {
     super(props);
@@ -113,6 +140,7 @@ export class Search extends Component {
         `http://13.125.34.37:3001/products/list?countryCode=${country_code}&storeCode=${store_code}&category=${category}&userID=${user_id}`
       )
       .then(res => {
+        console.log(res);
         this.props.history.push({
           pathname: `/searchresult/${country_code}/${store_code}/${category}`,
           state: {
@@ -204,91 +232,96 @@ export class Search extends Component {
       body
     } = this.state;
     return shops ? (
-      <Row>
-        <Dropdown
-          onMouseOver={this._onCountryMouseEnter}
-          onMouseLeave={this._onCountryMouseLeave}
-          isOpen={countryDropdownOpen}
-        >
-          <DropdownToggle>
-            {selectedCountry ? selectedCountry : 'Country'}
-          </DropdownToggle>
-          <DropdownMenu>
-            {Object.keys(countries).map(country => (
-              <DropdownItem
-                value={countries[country]}
-                onClick={this._onCountryClick}
-              >
-                {country}
-              </DropdownItem>
-            ))}
-          </DropdownMenu>
-        </Dropdown>
+      <SearchWrapper main={this.props.main ? true : false}>
+        <Row style={{ height: '70%' }}>
+          <Dropdown
+            onMouseOver={this._onCountryMouseEnter}
+            onMouseLeave={this._onCountryMouseLeave}
+            isOpen={countryDropdownOpen}
+          >
+            <StyledDropDownToggle
+              leftEnd
+              aria-haspopup={true}
+              aria-expanded={false}
+            >
+              {selectedCountry ? selectedCountry : '국가 선택'}
+            </StyledDropDownToggle>
+            <StyledDropDownMenu>
+              {Object.keys(countries).map(country => (
+                <DropdownItem
+                  value={countries[country]}
+                  onClick={this._onCountryClick}
+                >
+                  {country}
+                </DropdownItem>
+              ))}
+            </StyledDropDownMenu>
+          </Dropdown>
 
-        <Dropdown
-          onMouseOver={this._onShopMouseEnter}
-          onMouseLeave={this._onShopMouseLeave}
-          isOpen={shopDropdownOpen}
-        >
-          <DropdownToggle>
-            {selectedShop ? selectedShop : 'selectedShop'}
-          </DropdownToggle>
-          <DropdownMenu>
-            {selectedCountry
-              ? shops
-                  .filter(obj => obj.country_code === body.country_code)
-                  .map(shop => (
-                    <DropdownItem
-                      value={shop['store_code']}
-                      // value={shop['store_code']}
-                      onClick={this._onShopClick}
-                    >
-                      {shop['store_name']}
+          <Dropdown
+            onMouseOver={this._onShopMouseEnter}
+            onMouseLeave={this._onShopMouseLeave}
+            isOpen={shopDropdownOpen}
+          >
+            <StyledDropDownToggle aria-haspopup={true} aria-expanded={false}>
+              {selectedShop ? selectedShop : '스토어 선택'}
+            </StyledDropDownToggle>
+            <StyledDropDownMenu>
+              {selectedCountry
+                ? shops
+                    .filter(obj => obj.country_code === body.country_code)
+                    .map(shop => (
+                      <DropdownItem
+                        value={shop['store_code']}
+                        onClick={this._onShopClick}
+                      >
+                        {shop['store_name']}
+                      </DropdownItem>
+                    ))
+                : '국가를 선택해주세요'}
+            </StyledDropDownMenu>
+          </Dropdown>
+
+          <Dropdown
+            onMouseOver={this._onCategoryMouseEnter}
+            onMouseLeave={this._onCategoryMouseLeave}
+            isOpen={categoryDropdownOpen}
+          >
+            <StyledDropDownToggle aria-haspopup={true} aria-expanded={false}>
+              {selectedCategory ? selectedCategory : '카테고리 선택'}
+            </StyledDropDownToggle>
+            <StyledDropDownMenu>
+              {Object.keys(categories).map(category => (
+                <DropdownItem onClick={this._onCategoryClick}>
+                  {category}
+                </DropdownItem>
+              ))}
+            </StyledDropDownMenu>
+          </Dropdown>
+
+          <Dropdown
+            onMouseOver={this._onSubCategoryMouseEnter}
+            onMouseLeave={this._onSubCategoryMouseLeave}
+            isOpen={subCategoryDropdownOpen}
+          >
+            <StyledDropDownToggle aria-haspopup={true} aria-expanded={false}>
+              {selectedSubCategory ? selectedSubCategory : '상세 선택'}
+            </StyledDropDownToggle>
+            <StyledDropDownMenu>
+              {selectedCategory
+                ? categories[selectedCategory].map(sub => (
+                    <DropdownItem onClick={this._onSubCategoryClick}>
+                      {sub}
                     </DropdownItem>
                   ))
-              : '국가를 먼저 선택해주세요'}
-          </DropdownMenu>
-        </Dropdown>
-
-        <Dropdown
-          onMouseOver={this._onCategoryMouseEnter}
-          onMouseLeave={this._onCategoryMouseLeave}
-          isOpen={categoryDropdownOpen}
-        >
-          <DropdownToggle>
-            {selectedCategory ? selectedCategory : 'Category'}
-          </DropdownToggle>
-          <DropdownMenu>
-            {Object.keys(categories).map(category => (
-              <DropdownItem onClick={this._onCategoryClick}>
-                {category}
-              </DropdownItem>
-            ))}
-          </DropdownMenu>
-        </Dropdown>
-
-        <Dropdown
-          onMouseOver={this._onSubCategoryMouseEnter}
-          onMouseLeave={this._onSubCategoryMouseLeave}
-          isOpen={subCategoryDropdownOpen}
-        >
-          <DropdownToggle>
-            {selectedSubCategory ? selectedSubCategory : 'selectedSubCategory'}
-          </DropdownToggle>
-          <DropdownMenu>
-            {selectedCategory
-              ? categories[selectedCategory].map(sub => (
-                  <DropdownItem onClick={this._onSubCategoryClick}>
-                    {sub}
-                  </DropdownItem>
-                ))
-              : '카테고리를 먼저 선택해주세요'}
-          </DropdownMenu>
-        </Dropdown>
-        <Button onClick={this._onClickSearch} color="info">
-          검색
-        </Button>
-      </Row>
+                : '카테고리를 선택해주세요'}
+            </StyledDropDownMenu>
+          </Dropdown>
+          <StyledButton onClick={this._onClickSearch}>
+            <Icon onClick={this._onClickSearch} size={30} icon={search} />
+          </StyledButton>
+        </Row>
+      </SearchWrapper>
     ) : (
       <Spinner type="grow" color="info" />
     );
