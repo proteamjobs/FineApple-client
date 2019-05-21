@@ -17,7 +17,7 @@ function Main(props) {
         width: '100%'
       }}
     >
-      <Header />
+      <Header main />
       <Search main history={props.history} />
     </Container>
   );
