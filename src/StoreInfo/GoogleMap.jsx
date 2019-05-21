@@ -40,7 +40,8 @@ export class GoogleMap extends Component {
           name={'Apple'}
           position={{ lat: this.props.lat, lng: this.props.lng }}
           icon={{
-            url: 'https://t7.rbxcdn.com/4fcedcc22a2308067b295bc3257f5631',
+            url:
+              'https://purepng.com/public/uploads/large/21502362885rmhziap3wm5w0jogfdubr1fgyzuycu5rqkam39wjhh7yhmcncxka3vxq3xglitq4iwze8v0gpi1wmolyrtqkts57kit8ibyd2apb.png',
             anchor: new window.google.maps.Point(32, 32),
             scaledSize: new window.google.maps.Size(40, 40)
           }}
@@ -51,7 +52,7 @@ export class GoogleMap extends Component {
           visible={this.state.showingInfoWindow}
         >
           <div>
-            <h3>{this.props.storeName}</h3>
+            <h4>{this.props.storeName}</h4>
           </div>
         </InfoWindow>
       </Map>
