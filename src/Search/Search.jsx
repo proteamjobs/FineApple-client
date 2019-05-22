@@ -376,7 +376,10 @@ export class Search extends Component {
         </Row>
       </SearchWrapper>
     ) : (
-      <Spinner type="grow" color="info" />
+      <Spinner
+        color="secondary"
+        style={{ marginTop: '40vh', marginLeft: '(100vh-15px)/2' }}
+      />
     );
   }
 }

@@ -45,7 +45,10 @@ class HeartedItems extends Component {
         <Products history={history} products={productList} />
       </Fragment>
     ) : (
-      <Spinner color="info" />
+      <Spinner
+        color="secondary"
+        style={{ marginTop: '40vh', marginLeft: '48vw' }}
+      />
     );
   }
 }
