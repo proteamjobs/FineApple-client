@@ -60,6 +60,13 @@ const Intro2 = styled.div`
   font-weight: 400;
 `;
 
+const WithoutLoginButton = styled(Button)`
+  width: 20vw;
+  height: 5vh;
+  margin-top: 20px;
+  border-radius: 2px;
+`;
+
 export class Login extends Component {
   render() {
     return (
@@ -84,12 +91,9 @@ export class Login extends Component {
                 <GoogleButton history={this.props.history} />
                 <FacebookButton history={this.props.history} />
                 <Link to="/main">
-                  <Button
-                    color="secondary"
-                    style={{ width: '20vw', height: '5vh', marginTop: 20 }}
-                  >
+                  <WithoutLoginButton color="secondary">
                     로그인하지 않고 둘러보기
-                  </Button>
+                  </WithoutLoginButton>
                 </Link>
               </ButtonWrapper>
             </RightWing>
