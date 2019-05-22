@@ -36,12 +36,13 @@ export class FacebookButton extends Component {
     return (
       <FacebookLogin
         appId={FACEBOOK_APP_ID}
-        // autoLoad={true}
         fields="name,email,picture"
         callback={this._responseFacebook}
-        icon={<Icon size={30} icon={facebookOfficial} />}
+        icon={
+          <Icon size={30} icon={facebookOfficial} style={{ marginRight: 5 }} />
+        }
         textButton=" Facebook 로그인"
-        cssClass="facebook_button"
+        cssClass="social_login_button facebook_button"
       />
     );
   }

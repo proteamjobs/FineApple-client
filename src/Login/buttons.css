@@ -1,32 +1,25 @@
 .facebook_button {
-  width: 20vw;
-  font-family: Helvetica, sans-serif;
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  color: #fff;
-  cursor: pointer;
-  font-size: 20px;
-  transition: background-color 0.3s, border-color 0.3s;
   background-color: #4c69ba;
   border: calc(0.06887vw + 0.67769px) solid #4c69ba;
-  padding: 10px 20px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px,
-    rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
-  border-radius: 2px;
 }
 
 .google_button {
-  width: 20vw;
-  height: 7vh;
-  text-align: center;
-  font-family: Helvetica, sans-serif;
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  color: #fff;
-  cursor: pointer;
-  font-size: 30px;
-  transition: background-color 0.3s, border-color 0.3s;
   background-color: #d63031;
   border: calc(0.06887vw + 0.67769px) solid #d63031;
-  padding: calc(0.34435vw + 13.38843px) calc(0.34435vw + 18.38843px);
+}
+
+.social_login_button {
+  width: 20vw;
+  height: 7vh;
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+  text-align: left;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, border-color 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px,
+    rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+  border-radius: 2px;
 }
