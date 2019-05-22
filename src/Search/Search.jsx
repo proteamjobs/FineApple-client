@@ -84,7 +84,7 @@ export class Search extends Component {
     super(props);
 
     this.state = {
-      countries: { 대한민국: 'KR', 일본: 'JP', 홍콩: 'HK' },
+      countries: { 대한민국: 'kr', 일본: 'jp', 홍콩: 'hk' },
       shops: null,
       categories: {
         Mac: [
@@ -123,12 +123,13 @@ export class Search extends Component {
   componentDidMount = () => {
     axios
       .get('http://13.125.34.37:3001/stores/list')
-      .then(result =>
+      .then(result => {
+        console.log(result);
         this.setState({
           ...this.state,
           shops: result.data
-        })
-      )
+        });
+      })
       .catch(err => console.log(err));
   };
 

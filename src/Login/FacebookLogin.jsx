@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import config from '../config/config';
-
+import './buttons.css';
+import Icon from 'react-icons-kit';
+import { facebookOfficial } from 'react-icons-kit/fa/facebookOfficial';
 const axios = require('axios');
 const FACEBOOK_APP_ID = config.FACEBOOK_APP_ID;
 
@@ -34,11 +36,13 @@ export class FacebookButton extends Component {
     return (
       <FacebookLogin
         appId={FACEBOOK_APP_ID}
-        // autoLoad={true}
         fields="name,email,picture"
         callback={this._responseFacebook}
-        // cssClass="my-facebook-button-class"
-        icon="fa-facebook"
+        icon={
+          <Icon size={30} icon={facebookOfficial} style={{ marginRight: 5 }} />
+        }
+        textButton=" Facebook 로그인"
+        cssClass="social_login_button facebook_button"
       />
     );
   }

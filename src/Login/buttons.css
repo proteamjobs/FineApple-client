@@ -1,0 +1,25 @@
+.facebook_button {
+  background-color: #4c69ba;
+  border: calc(0.06887vw + 0.67769px) solid #4c69ba;
+}
+
+.google_button {
+  background-color: #d63031;
+  border: calc(0.06887vw + 0.67769px) solid #d63031;
+}
+
+.social_login_button {
+  width: 20vw;
+  height: 7vh;
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+  text-align: left;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, border-color 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px,
+    rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+  border-radius: 2px;
+}
