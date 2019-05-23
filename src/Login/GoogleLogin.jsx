@@ -42,6 +42,7 @@ export class GoogleButton extends Component {
     return (
       <GoogleLogin
         clientId={GOOGLE_LOGIN_CLIENTID}
+        redirectUri="http://fineapple-client.s3-website.ap-northeast-2.amazonaws.com/"
         buttonText="GOOGLE 로그인"
         onSuccess={this._googleResponse}
         onFailure={this._onFailure}
