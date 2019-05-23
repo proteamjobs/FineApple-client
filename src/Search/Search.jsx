@@ -41,8 +41,8 @@ const StyledDropDownToggle = styled(DropdownToggle)`
   && {
     background-color: white;
     color: gray;
-    border-top-left-radius: ${props => (props.leftEnd ? '5' : '0')};
-    border-bottom-left-radius: ${props => (props.leftEnd ? '5' : '0')};
+    border-top-left-radius: ${props => (props.leftend ? '5' : '0')};
+    border-bottom-left-radius: ${props => (props.leftend ? '5' : '0')};
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border: ${props => (props.main ? 'none' : '1px solid #95a5a6')};
@@ -124,7 +124,6 @@ export class Search extends Component {
     axios
       .get('http://13.125.34.37:3001/stores/list')
       .then(result => {
-        console.log(result);
         this.setState({
           ...this.state,
           shops: result.data
@@ -137,13 +136,13 @@ export class Search extends Component {
     const { store_code, category } = this.state.body;
     const country_code = this.state.body.country_code.toLowerCase();
 
-    console.log(this.state.body);
+    // console.log(this.state.body);
     let user_id;
     if (!country_code) alert('국가를 선택해주세요');
     if (!store_code) alert('매장을 선택해주세요');
     if (!category) alert('카테고리를 선택해주세요');
     if (localStorage.user_id) {
-      user_id = localStorage.user_id;
+      user_id = localStorage.userDB_id;
     } else {
       user_id = 0;
     }
@@ -153,7 +152,6 @@ export class Search extends Component {
         `http://13.125.34.37:3001/products/list?countryCode=${country_code}&storeCode=${store_code}&category=${category}&userID=${user_id}`
       )
       .then(res => {
-        console.log(res);
         this.props.history.push({
           pathname: `/searchresult/${country_code}/${store_code}/${category}`,
           state: {
@@ -172,7 +170,6 @@ export class Search extends Component {
   };
 
   _onShopClick = e => {
-    console.log(e.target.value);
     this.setState({
       ...this.state,
       selectedShop: e.currentTarget.textContent,
@@ -253,7 +250,7 @@ export class Search extends Component {
             isOpen={countryDropdownOpen}
           >
             <StyledDropDownToggle
-              leftEnd
+              leftend
               aria-haspopup={true}
               aria-expanded={false}
             >
@@ -378,7 +375,7 @@ export class Search extends Component {
     ) : (
       <Spinner
         color="secondary"
-        style={{ marginTop: '40vh', marginLeft: '(100vh-15px)/2' }}
+        style={{ marginTop: '33vh', marginLeft: '48vw' }}
       />
     );
   }
