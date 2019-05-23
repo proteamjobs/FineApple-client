@@ -1,0 +1,17 @@
+.dropdown_toggle {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.dropdown_toggle:hover {
+  background-color: transparent;
+  border: none;
+}
+
+.dropdown-menu {
+  background-color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #f4f4f4;
+}
