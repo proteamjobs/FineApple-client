@@ -4,7 +4,6 @@ import LoginButton from './LoginButton';
 import UserButton from './UserButton';
 import { Row } from 'reactstrap';
 import './style.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../img/logo_white.png';
 import styled from 'styled-components';
 

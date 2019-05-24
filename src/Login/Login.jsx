@@ -85,7 +85,7 @@ export class Login extends Component {
             }}
           >
             <LeftWing>
-              <img alt="logo" src={logo} />
+              <img alt="logo" src={logo} style={{ width: '25vw' }} />
               <Intro1>전 세계 Apple 매장의 재고를</Intro1>
               <Intro2>실시간으로 확인하세요!</Intro2>
             </LeftWing>

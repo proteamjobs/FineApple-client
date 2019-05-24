@@ -5,7 +5,7 @@ function StoreInfo() {
   return <div>StoreInfo</div>;
 =======
 import React, { Component, Fragment } from 'react';
-import { Container, Col, Row, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import GoogleMap from './GoogleMap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../Header/Header';

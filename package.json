@@ -18,6 +18,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "reactstrap": "^8.0.0",
+    "scottyjs": "^1.10.2",
     "styled-components": "^4.2.0"
 >>>>>>> 766c8b365d7e3b171f47d84d671bccd564629a58
   },
