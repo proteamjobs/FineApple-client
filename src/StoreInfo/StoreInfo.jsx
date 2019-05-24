@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-function StoreInfo() {
-  return <div>StoreInfo</div>;
-=======
 import React, { Component, Fragment } from 'react';
 import { Button } from 'reactstrap';
 import GoogleMap from './GoogleMap';
@@ -130,7 +124,6 @@ export class StoreInfo extends Component {
       </Fragment>
     );
   }
->>>>>>> 766c8b365d7e3b171f47d84d671bccd564629a58
 }
 
 export default StoreInfo;

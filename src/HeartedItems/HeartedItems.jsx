@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-function HeartedItems() {
-  return <div>HeartedItems</div>;
-=======
 import React, { Component, Fragment } from 'react';
 import Header from '../Header/Header';
 import Search from '../Search/Search';
@@ -57,7 +51,6 @@ class HeartedItems extends Component {
       />
     );
   }
->>>>>>> 766c8b365d7e3b171f47d84d671bccd564629a58
 }
 
 export default HeartedItems;

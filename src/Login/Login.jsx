@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-function Login() {
-  return <div>Login</div>;
-=======
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleButton from './GoogleLogin';
@@ -108,7 +102,6 @@ export class Login extends Component {
       </Container>
     );
   }
->>>>>>> 766c8b365d7e3b171f47d84d671bccd564629a58
 }
 
 export default Login;
