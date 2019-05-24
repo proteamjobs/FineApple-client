@@ -22,14 +22,16 @@ export class FacebookButton extends Component {
     localStorage.setItem('provider', 'facebook');
     localStorage.setItem('access_token', res.accessToken);
 
-    axios.post('http://13.125.34.37:3001/users/auth', userData).then(result => {
-      if (!result.data.isMember) {
-        this.props.history.push('/register');
-      } else {
-        localStorage.setItem('userDB_id', result.data.userDB_id);
-        this.props.history.push('/main');
-      }
-    });
+    axios
+      .post('https://ec2.fine-apple.me/users/auth', userData)
+      .then(result => {
+        if (!result.data.isMember) {
+          this.props.history.push('/register');
+        } else {
+          localStorage.setItem('userDB_id', result.data.userDB_id);
+          this.props.history.push('/main');
+        }
+      });
   };
 
   render() {

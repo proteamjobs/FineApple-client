@@ -19,7 +19,7 @@ class HeartedItems extends Component {
   componentDidMount() {
     axios
       .get(
-        `http://13.125.34.37:3001/heartedItems/list?userID=${
+        `https://ec2.fine-apple.me/heartedItems/list?userID=${
           localStorage.userDB_id
         }`
       )

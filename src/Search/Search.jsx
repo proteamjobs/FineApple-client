@@ -122,7 +122,7 @@ export class Search extends Component {
 
   componentDidMount = () => {
     axios
-      .get('http://13.125.34.37:3001/stores/list')
+      .get('https://ec2.fine-apple.me/stores/list')
       .then(result => {
         this.setState({
           ...this.state,
@@ -149,7 +149,7 @@ export class Search extends Component {
 
     axios
       .get(
-        `http://13.125.34.37:3001/products/list?countryCode=${country_code}&storeCode=${store_code}&category=${category}&userID=${user_id}`
+        `https://ec2.fine-apple.me/products/list?countryCode=${country_code}&storeCode=${store_code}&category=${category}&userID=${user_id}`
       )
       .then(res => {
         this.props.history.push({
