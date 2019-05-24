@@ -42,7 +42,7 @@ export class Products extends Component {
         //찜삭제
         if (heartColor === 'rgb(234, 134, 133)') {
           axios
-            .delete('http://13.125.34.37:3001/heartedItems/delete', {
+            .delete('https://ec2.fine-apple.me/heartedItems/delete', {
               data: body
             })
             .then(result => {
@@ -55,7 +55,7 @@ export class Products extends Component {
           //찜등록
         } else if (heartColor === 'rgb(178, 190, 195)') {
           axios
-            .post('http://13.125.34.37:3001/heartedItems/add', body)
+            .post('https://ec2.fine-apple.me/heartedItems/add', body)
             .then(result => {
               //   console.log(result);
               if (result.status === 201) {
@@ -78,7 +78,7 @@ export class Products extends Component {
     );
     axios
       .get(
-        `http://13.125.34.37:3001/stores/info?countryCode=${countryCode}&storeCode=${storeCode}`
+        `https://ec2.fine-apple.me/stores/info?countryCode=${countryCode}&storeCode=${storeCode}`
       )
       .then(res => {
         // console.log(res.data);

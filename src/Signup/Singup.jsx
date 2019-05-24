@@ -46,10 +46,11 @@ class Singup extends Component {
   _onClickSignup = () => {
     let userData = {
       user_id: localStorage.user_id,
-      provider: localStorage.provider
+      provider: localStorage.provider,
+      email: localStorage.user_email
     };
 
-    axios.post('http://13.125.34.37:3001/users/signup', userData).then(res => {
+    axios.post('https://ec2.fine-apple.me/users/signup', userData).then(res => {
       if (res.data === 'Done') {
         this.props.history.push('/main');
       } else {
