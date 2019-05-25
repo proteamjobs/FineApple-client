@@ -54,7 +54,6 @@ export class UserButton extends Component {
     return (
       <Fragment>
         <Dropdown
-          // direction="left"
           onMouseOver={this._onMouseEnter}
           onMouseLeave={this._onMouseLeave}
           isOpen={dropdownOpen}
@@ -78,7 +77,9 @@ export class UserButton extends Component {
             }}
           >
             <DropdownItem header style={{ fontWeight: 600 }}>
-              {localStorage.user_email}
+              {localStorage.user_email !== 'undefined'
+                ? localStorage.user_email
+                : localStorage.user_name}
             </DropdownItem>
             <DropdownItem divider />
             <DropdownItem>

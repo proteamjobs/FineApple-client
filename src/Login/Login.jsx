@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import GoogleButton from './GoogleLogin';
 import FacebookButton from './FacebookLogin';
 import { Container, Row, Col, Button } from 'reactstrap';
@@ -69,7 +69,12 @@ const WithoutLoginButton = styled(Button)`
 
 export class Login extends Component {
   render() {
-    return (
+    let isLogin = localStorage.access_token ? true : false;
+    console.log(isLogin);
+
+    return isLogin ? (
+      <Redirect to="/main" />
+    ) : (
       <Container fluid style={{ margin: 0, padding: 0 }}>
         <Wrapper>
           <Col

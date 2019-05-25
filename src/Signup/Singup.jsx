@@ -51,7 +51,9 @@ class Singup extends Component {
     };
 
     axios.post('https://ec2.fine-apple.me/users/signup', userData).then(res => {
-      if (res.data === 'Done') {
+      //localStorage에 정보 저장하기
+      if (res.data.isDone) {
+        localStorage.setItem('userDB_id', res.data.userDB_id);
         this.props.history.push('/main');
       } else {
         alert('다시 시도해주세요');

@@ -20,6 +20,8 @@ const Button = styled.button`
 `;
 
 function LoginButton() {
+  console.log('Login BUTTON COMP ::::: ', localStorage.userDB_id);
+
   return (
     <Link to="/">
       <Button>로그인</Button>
