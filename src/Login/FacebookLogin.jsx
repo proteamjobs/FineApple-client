@@ -21,6 +21,7 @@ export class FacebookButton extends Component {
     localStorage.setItem('user_image', res.picture.data.url);
     localStorage.setItem('provider', 'facebook');
     localStorage.setItem('access_token', res.accessToken);
+    localStorage.setItem('user_name', res.name);
 
     axios
       .post('https://ec2.fine-apple.me/users/auth', userData)

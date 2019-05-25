@@ -20,11 +20,13 @@ export class GoogleButton extends Component {
       provider: 'google'
     };
 
+    console.log(res);
     localStorage.setItem('user_id', res.googleId);
     localStorage.setItem('user_email', res.profileObj.email);
     localStorage.setItem('user_image', res.profileObj.imageUrl);
     localStorage.setItem('provider', 'google');
     localStorage.setItem('access_token', res.accessToken);
+    localStorage.setItem('user_name', res.profileObj.name);
 
     axios
       .post('https://ec2.fine-apple.me/users/auth', userData)
@@ -32,7 +34,6 @@ export class GoogleButton extends Component {
         if (!result.data.isMember) {
           this.props.history.push('/register');
         } else {
-          console.log(typeof result.data.userDB_id);
           localStorage.setItem('userDB_id', result.data.userDB_id);
           this.props.history.push('/main');
         }

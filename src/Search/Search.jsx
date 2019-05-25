@@ -96,6 +96,7 @@ export class Search extends Component {
           'Macmini'
         ],
         iphone: ['iPhoneXS', 'iPhoneXR', 'iPhone8', 'iPhone7'],
+        iPad: ['ipadpro', 'ipadair', 'ipad', 'ipadmini'],
         Watch: [
           'AppleWatchSeries3',
           'AppleWatchSeries4',

@@ -22,6 +22,12 @@ const CardWrapper = styled.div`
   padding: 0 10vw 0 10vw;
 `;
 
+const NoResult = styled.h5`
+  margin-top: 12vh;
+  text-align: center;
+  color: #636e72;
+`;
+
 export class Products extends Component {
   _onClickHeart = e => {
     e.persist();
@@ -93,7 +99,7 @@ export class Products extends Component {
 
   render() {
     const products = this.props.products;
-    return (
+    return products.length ? (
       <CardWrapper>
         {products.map(product => (
           <Card
@@ -154,6 +160,8 @@ export class Products extends Component {
           </Card>
         ))}
       </CardWrapper>
+    ) : (
+      <NoResult>검색 결과가 없습니다.</NoResult>
     );
   }
 }
