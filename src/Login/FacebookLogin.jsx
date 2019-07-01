@@ -42,7 +42,7 @@ export class FacebookButton extends Component {
         fields="name,email,picture"
         callback={this._responseFacebook}
         icon={
-          <Icon size={30} icon={facebookOfficial} style={{ marginRight: 5 }} />
+          <Icon size={24} icon={facebookOfficial} style={{ marginRight: 5 }} />
         }
         textButton=" Facebook 로그인"
         cssClass="social_login_button facebook_button"

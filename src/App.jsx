@@ -9,12 +9,19 @@ import HeartedItems from './HeartedItems/HeartedItems';
 import NoMatch from './404NotFound';
 
 const App = () => {
+  // const login = props => {
+  //   let isLogin = localStorage.access_token ? true : false;
+  //   console.log(isLogin);
+
+  //   return isLogin ? <Main {...props} /> : <Login {...props} />;
+  // };
+
   return (
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/main" component={Main} />
+          <Route exact path="/" render={props => <Login {...props} />} />
+          <Route path="/main" render={props => <Main {...props} />} />
           <Route path="/register" component={Signup} />
           <Route
             path="/searchresult/:countrycode/:storecode/:category"

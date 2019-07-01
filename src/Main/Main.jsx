@@ -7,8 +7,7 @@ import background from '../img/background_city.jpg';
 
 function Main(props) {
   return (
-    <Container
-      fluid
+    <div
       style={{
         margin: 0,
         backgroundImage: `url(${background})`,
@@ -17,9 +16,13 @@ function Main(props) {
         width: '100%'
       }}
     >
-      <Header main />
-      <Search main history={props.history} />
-    </Container>
+      <Container fluid>
+        <Header main />
+      </Container>
+      <Container fluid style={{ maxWidth: 1110 }}>
+        <Search main history={props.history} />
+      </Container>
+    </div>
   );
 }
 

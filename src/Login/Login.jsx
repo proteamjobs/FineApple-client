@@ -24,24 +24,23 @@ const LeftWing = styled.div`
 `;
 
 const RightWing = styled.div`
+  margin-top: 15vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 15vh;
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
+  align-self: center;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid #dfe6e9;
   border-radius: 3px;
-  width: 50%;
-  height: 50vh;
+  height: 30rem;
+  max-width: 24rem;
   margin-top: 5vh;
-  padding: 10vh;
+  padding: 4rem;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 1.5px 1.5px 0px;
 `;
@@ -56,14 +55,29 @@ const Intro1 = styled.div`
 
 const Intro2 = styled.div`
   color: white;
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: 400;
 `;
 
+const CallToAction = styled.h2`
+  text-align: center;
+`;
+
 const WithoutLoginButton = styled(Button)`
-  width: 20vw;
-  height: 5vh;
-  margin-top: 20px;
+  width: 100%;
+  min-width: 15rem;
+  max-width: 16rem;
+  height: 5rem;
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+  text-align: left;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, border-color 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px,
+    rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
   border-radius: 2px;
 `;
 
@@ -78,7 +92,9 @@ export class Login extends Component {
       <Container fluid style={{ margin: 0, padding: 0 }}>
         <Wrapper>
           <Col
-            xs="5"
+            xs="12"
+            sm="4"
+            md="5"
             style={{
               backgroundColor: '#2c3e50'
             }}
@@ -89,9 +105,9 @@ export class Login extends Component {
               <Intro2>실시간으로 확인하세요!</Intro2>
             </LeftWing>
           </Col>
-          <Col xs="7">
+          <Col xs="12" sm="8" md="7">
             <RightWing>
-              <h2>지금, 바로 가입하세요</h2>
+              <CallToAction>지금, 바로 가입하세요</CallToAction>
               <ButtonWrapper>
                 <GoogleButton history={this.props.history} />
                 <FacebookButton history={this.props.history} />
